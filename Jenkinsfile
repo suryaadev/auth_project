@@ -1,9 +1,11 @@
 pipeline {
-    agent ubuntu;
+    agent {
+        label 'ubuntu'
+    }
     stages {
         stage('Build') {
             steps {
-                echo 'Building...,'
+                echo 'Building...'
             }
         }
         stage('Test') {
