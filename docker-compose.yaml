@@ -15,7 +15,7 @@ services:
       - "6379:6379"
 
   backend:
-    image: myuser/auth_backend:latest
+    image: kartoos21/auth_backend:latest
     ports:
       - "5000:5000"
     depends_on:
@@ -23,7 +23,7 @@ services:
       - redis
 
   frontend:
-    image: myuser/auth_frontend:latest
+    image: kartoos21/auth_frontend:latest
     ports:
       - "3000:3000"
     depends_on:
