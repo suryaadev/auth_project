@@ -24,13 +24,13 @@ pipeline {
             steps {
                 echo 'pushing to dockerHub.....'
                 withCredentials([usernamePassword(credentialsId:"dockerhub", passwordVariable:"pass", usernameVariable:"user")]) {
-                    sh '''
+                    sh """
                         docker tag auth_backend ${env.user}/auth_backend:latest
                         docker tag auth_frontend ${env.user}/auth_frontend:latest
                         docker login -u ${env.user} -p ${pass}
                         docker push ${env.user}/auth_backend:latest
                         docker push ${env.user}/auth_frontend:latest
-                    '''
+                    """
                 }
             }
         }
