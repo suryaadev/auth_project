@@ -150,7 +150,7 @@ function App() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Login / Register</h1>
+      <h1>Lavda / Lasan</h1>
       <input
         placeholder="Username"
         value={username}
