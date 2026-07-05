@@ -36,7 +36,12 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
+                echo 'Deploying.....'
+                sh """
+                    sh 'docker rm -f $(docker ps -aq --filter "name=auth_backend")
+                    sh 'docker rm -f $(docker ps -aq --filter "name=auth_frontend")
+                    docker compose up -d
+                """
             }
         }
     }
