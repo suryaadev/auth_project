@@ -38,10 +38,10 @@ pipeline {
             steps {
                 echo 'Deploying.....'
                 sh '''
-                    sh 'docker rm -f $(docker ps -aq --filter "name=auth_backend") || true
-                    sh 'docker rm -f $(docker ps -aq --filter "name=auth_frontend") || true
+                    docker compose down
+                    docker compose pull
                     docker compose up -d
-                '''
+                ''' 
             }
         }
     }
