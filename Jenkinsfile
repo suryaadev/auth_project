@@ -37,11 +37,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying.....'
-                sh """
+                sh '''
                     sh 'docker rm -f $(docker ps -aq --filter "name=auth_backend")
                     sh 'docker rm -f $(docker ps -aq --filter "name=auth_frontend")
                     docker compose up -d
-                """
+                '''
             }
         }
     }
